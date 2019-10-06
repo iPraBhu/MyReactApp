@@ -4,7 +4,7 @@ import { Consumer } from "../../context";
 import TextInputGroup from "../layout/TextInputGroup";
 import Axios from "axios";
 
-class AddContact extends Component {
+class EditContact extends Component {
   state = {
     name: "",
     email: "",
@@ -13,6 +13,18 @@ class AddContact extends Component {
   };
 
   onChange = e => this.setState({ [e.target.name]: e.target.value });
+
+  //if we use async way, the form will open only when data is returned from api. In below scenario, form will open and values will update once data comes form field.
+  componentDidMount() {
+    const { id } = this.props.match.params;
+    Axios.get(`https://jsonplaceholder.typicode.com/users/${id}`).then(res => {
+      this.setState({
+        name: res.data.name,
+        email: res.data.email,
+        phone: res.data.phone
+      });
+    });
+  }
 
   onSubmit = async (dispatch, e) => {
     e.preventDefault();
@@ -31,17 +43,19 @@ class AddContact extends Component {
       this.setState({ errors: { phone: "Phone is Required" } });
       return;
     }
-    const newContact = {
+
+    const { id } = this.props.match.params;
+
+    const updContact = {
       name,
       email,
       phone
     };
+    Axios.put(
+      `https://jsonplaceholder.typicode.com/users/${id}`,
+      updContact
+    ).then(res => dispatch({ type: "UPDATE_CONTACT", payload: res.data }));
 
-    const res = await Axios.post(
-      "https://jsonplaceholder.typicode.com/users",
-      newContact
-    );
-    dispatch({ type: "ADD_CONTACT", payload: res.data });
     this.setState({
       name: "",
       email: "",
@@ -61,7 +75,7 @@ class AddContact extends Component {
           const { dispatch } = value;
           return (
             <div className="card mb-3">
-              <div className="card-header">Add Contact</div>
+              <div className="card-header">Edit Contact</div>
               <div className="card-body">
                 <form onSubmit={this.onSubmit.bind(this, dispatch)}>
                   <TextInputGroup
@@ -93,7 +107,7 @@ class AddContact extends Component {
                   <input
                     type="submit"
                     className="btn btn-block btn-light"
-                    value="Add Contact"
+                    value="Update Contact"
                   />
                 </form>
               </div>
@@ -105,4 +119,4 @@ class AddContact extends Component {
   }
 }
 
-export default AddContact;
+export default EditContact;

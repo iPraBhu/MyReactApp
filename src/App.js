@@ -2,6 +2,7 @@ import React from "react";
 import Contacts from "./components/contacts/Contacts";
 import Header from "./components/layout/Header";
 import AddContact from "./components/contacts/AddContact";
+import EditContact from "./components/contacts/EditContact";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "./context";
 import About from "./components/pages/About";
@@ -12,7 +13,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 function App() {
   return (
     <Provider>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <div className="App">
           <Header branding="Contact Manager" />
 
@@ -21,6 +22,7 @@ function App() {
               <Route exact path="/" component={Contacts} />
               <Route exact path="/about" component={About} />
               <Route exact path="/contact/add" component={AddContact} />
+              <Route exact path="/contact/edit/:id" component={EditContact} />
               <Route component={NotFound} />
             </Switch>
           </div>
