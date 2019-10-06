@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/MyReactApp/static/css/main.cfda8877.chunk.css",
+    "main.js": "/MyReactApp/static/js/main.15ac0ae3.chunk.js",
+    "main.js.map": "/MyReactApp/static/js/main.15ac0ae3.chunk.js.map",
+    "runtime-main.js": "/MyReactApp/static/js/runtime-main.ca1fc400.js",
+    "runtime-main.js.map": "/MyReactApp/static/js/runtime-main.ca1fc400.js.map",
+    "static/css/2.f5bcedfb.chunk.css": "/MyReactApp/static/css/2.f5bcedfb.chunk.css",
+    "static/js/2.b91419c5.chunk.js": "/MyReactApp/static/js/2.b91419c5.chunk.js",
+    "static/js/2.b91419c5.chunk.js.map": "/MyReactApp/static/js/2.b91419c5.chunk.js.map",
+    "index.html": "/MyReactApp/index.html",
+    "precache-manifest.dfa47505feeeac0c99d8f5e81b98a932.js": "/MyReactApp/precache-manifest.dfa47505feeeac0c99d8f5e81b98a932.js",
+    "service-worker.js": "/MyReactApp/service-worker.js",
+    "static/css/2.f5bcedfb.chunk.css.map": "/MyReactApp/static/css/2.f5bcedfb.chunk.css.map",
+    "static/css/main.cfda8877.chunk.css.map": "/MyReactApp/static/css/main.cfda8877.chunk.css.map",
+    "static/media/all.min.css": "/MyReactApp/static/media/fa-solid-900.c2801fb4.svg"
+  }
+}
